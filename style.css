@@ -1,6 +1,10 @@
+body {
+    margin-left:  5%;
+    margin-right: 5%;
+}
 #td-red-input, #td-green-input, #td-blue-input{
     padding-top: 0.625em;
-    padding-left: 1em;
+    padding-left: 0em;
 }
 .tr-row1 td{
     width: 6.25em;
@@ -11,18 +15,18 @@
 #color-div{
     display: none;
     margin-top: 0.625em;
-    margin-left: 2em;
+    margin-left: 0em;
     width: 6.25em;
     height: 6.25em;
     background-color: blue;
 }
 #td-convertto-hexadecimal{
     padding-top: 0.625em;
-    padding-left: 1em;
+    padding-left: 0em;
 }
 #th-red, #th-green, #th-blue{
     padding-top: 0.625em;
-    padding-left: 1em;
+    padding-left: 0em;
 }
 #th-red{
     color: red;
@@ -40,7 +44,7 @@
 }
 #td-hex-value{
     padding-top: 0.625em;
-    padding-left: 1em;
+    padding-left: 0em;
 }
 #button-copy-hexcode{
     display: none;
@@ -50,10 +54,12 @@
     padding-top: 0.625em;
 }
 h1{
-    padding-top: 0.625em;
-    padding-left: 1em;
+    padding-left: 0em;
 }
 table{
-    margin-left: 1em;
+    margin-left: 0em;
+}
+#github-repo{
+    margin-left: 0em;
 }
 
