@@ -40,6 +40,9 @@ button_convertto_hexadecimal.addEventListener(("click"),(event)=>{
         if(red_input.value===""){red_input.value="0"}
         if(green_input.value===""){green_input.value="0"}
         if(blue_input.value===""){blue_input.value="0"}
+        if(parseInt(red_input.value)>255){red_input.value="255"}
+        if(parseInt(green_input.value)>255){green_input.value="255"}
+        if(parseInt(blue_input.value)>255){blue_input.value="255"}
         console.log(red_input.value)
         console.log(green_input.value)
         console.log(blue_input.value)
