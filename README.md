@@ -3,4 +3,4 @@ Effortlessly convert RGB color codes to hexadecimal format with this intuitive a
 
 ![RGBtoHexColor-Screenshot-Android.png](https://freesmartphoneapps.com/javascript/rgbtohexcolor/RGBtoHexColor-Screenshot-Android-refresh.png)
 
-https://freesmartphoneapps.com/javascript/rgbtohexcolor/index.html
+https://freesmartphoneapps.com/javascript/rgbtohexcolor/
