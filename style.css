@@ -1,0 +1,59 @@
+#td-red-input, #td-green-input, #td-blue-input{
+    padding-top: 0.625em;
+    padding-left: 1em;
+}
+.tr-row1 td{
+    width: 6.25em;
+}
+.tr-row2 td{
+    width: 12.5em;
+}
+#color-div{
+    display: none;
+    margin-top: 0.625em;
+    margin-left: 2em;
+    width: 6.25em;
+    height: 6.25em;
+    background-color: blue;
+}
+#td-convertto-hexadecimal{
+    padding-top: 0.625em;
+    padding-left: 1em;
+}
+#th-red, #th-green, #th-blue{
+    padding-top: 0.625em;
+    padding-left: 1em;
+}
+#th-red{
+    color: red;
+}
+#th-green{
+    color: green;
+}
+#th-blue{
+    color: blue;
+}
+#hex-value-input{
+    display: none;
+    width: 70px;
+    
+}
+#td-hex-value{
+    padding-top: 0.625em;
+    padding-left: 1em;
+}
+#button-copy-hexcode{
+    display: none;
+
+}
+#td-button-copy-hexcode{
+    padding-top: 0.625em;
+}
+h1{
+    padding-top: 0.625em;
+    padding-left: 1em;
+}
+table{
+    margin-left: 1em;
+}
+
