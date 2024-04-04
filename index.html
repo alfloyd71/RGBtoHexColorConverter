@@ -52,13 +52,33 @@
             </table> 
         </form>
         
-    
+        <div id="color-div-tohex"></div>
 
-    <div id="color-div"></div>
     <table>
-        <tr><td id="td-hex-value"><input type="input" id="hex-value-input" maxlength="7"></td>
+        <tr><td id="td-hex-value"><input type="input" id="input-hex-value-tocopy" maxlength="7"></td>
         <td id="td-button-copy-hexcode"><button id="button-copy-hexcode">Copy</button></td></tr>
     </table>
+
+    <form>
+        <table id="table-hextorgb"> 
+        <th id="th-hex-value">Hex Value</th>
+        <tr class="tr-row1">
+            <td id="td-hex-value"><input type="input" id="input-hex" placeholder="#000000"></td>
+        </tr>
+        </table> 
+        <table> 
+            <tr class="tr-row2"><td id="td-convertto-rgb"><button class="btn btn-primary" id="button-convertto-rgb">Convert to RGB</button></td>
+            <td>&nbsp;</td></tr>
+        </table> 
+    </form>
+
+    <div id="color-div-torgb"></div>
+
+    <table>
+        <tr><td id="td-rgb-value"><input type="input" id="input-rgb-value-tocopy" maxlength="7"></td>
+        <td id="td-button-copy-rgb"><button id="button-copy-rgb">Copy</button></td></tr>
+    </table>
+
     <footer class="footer py-5">
         <div class="container">
           

@@ -12,7 +12,15 @@ body {
 .tr-row2 td{
     width: 12.5em;
 }
-#color-div{
+#color-div-tohex{
+    display: none;
+    margin-top: 0.625em;
+    margin-left: 0em;
+    width: 6.25em;
+    height: 6.25em;
+    background-color: blue;
+}
+#color-div-torgb{
     display: none;
     margin-top: 0.625em;
     margin-left: 0em;
@@ -21,6 +29,10 @@ body {
     background-color: blue;
 }
 #td-convertto-hexadecimal{
+    padding-top: 0.625em;
+    padding-left: 0em;
+}
+#td-convertto-rgb{
     padding-top: 0.625em;
     padding-left: 0em;
 }
@@ -37,22 +49,27 @@ body {
 #th-blue{
     color: blue;
 }
-#hex-value-input{
+#input-hex-value-tocopy{
     display: none;
-    width: 70px;
+    width: 8em;
     
 }
-#td-hex-value{
-    padding-top: 0.625em;
-    padding-left: 0em;
+#input-rgb-value-tocopy{
+    display: none;
+    width: 8em;
+    
 }
+
+
 #button-copy-hexcode{
     display: none;
 
 }
-#td-button-copy-hexcode{
-    padding-top: 0.625em;
+#button-copy-rgb{
+    display: none;
+
 }
+
 h1{
     padding-left: 0em;
 }
@@ -61,5 +78,8 @@ table{
 }
 #github-repo{
     margin-left: 0em;
+}
+#table-hextorgb{
+    margin-top: 1em;
 }
 
