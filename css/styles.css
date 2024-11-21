@@ -1,0 +1,195 @@
+body {
+  margin-left:  5%;
+  margin-right: 5%;
+}
+
+#color-div-tohex{
+  display: inline-block;
+  margin-top: 0.625em;
+  margin-left: 0em;
+  width: 6.25em;
+  height: 6.25em;
+  background-color: blue;
+}
+
+#color-div-torgb{
+  display: inline-block;
+  margin-top: 0.625em;
+  margin-left: 0em;
+  width: 6.25em;
+  height: 6.25em;
+  background-color: blue;
+}
+
+.color-red{
+  color: red;
+}
+.color-green{
+  color: green;
+}
+
+.color-blue{
+  color: blue;
+}
+#input-hex-value-tocopy{
+  display: none;
+  width: 8em;
+  
+}
+#input-rgb-value-tocopy{
+  display: inline-block;
+  width: 8em;
+  
+}
+
+button{
+background-color: rgb(68, 5, 97);
+color: white;
+border-radius: 16px;
+background-image: linear-gradient(90deg, red, orange,yellow,green,blue,indigo,violet);
+}
+
+
+#button-copy-hexcode{
+  display: none;
+
+}
+#button-copy-rgb{
+  display: none;
+
+}
+
+h1{
+  padding-left: 0em;
+}
+
+#github-repo{
+  margin-left: 0em;
+}
+
+.gradient-text {
+font-size: 2em;
+font-weight: 600;
+user-select: none;
+/* Set a linear gradient as the background of the entire element */
+background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+padding: 1em 0.5em;
+padding-left: 0em;
+padding-right: 5em;
+text-align: center;
+/* Create a gradient for the text */
+position: relative; /* Set up for the pseudo-element */
+display: inline-block; /* Ensure gradient stays within text bounds */
+color: transparent; /* Required for text gradient to be visible */
+border: 0px solid blue;
+}
+
+.gradient-text::before {
+ /* Create a pseudo-element to hold the gradient for the text */
+ content: attr(data-heading-text);
+ position: absolute;
+ top: 1em;
+ left: 1em;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(90deg, violet,indigo,lightblue,lightgreen,yellow,orange,red);
+ -webkit-background-clip: text;
+ background-clip: text;
+ color: transparent;
+ z-index: 1; /* Ensure this gradient is above the normal background */
+ pointer-events: none; /* Ensure this pseudo-element doesn't block interaction with the text */
+}
+
+.rainbow-logo{
+position: absolute;
+top: 18%;
+left: 12%;
+height: 1.5em;
+z-index: 2;
+border: 0px solid blue;
+}
+
+#red-input{
+  width: 2em;
+}
+#green-input{
+  width: 2em;
+}
+#blue-input{
+  width: 2em;
+}
+
+.input-group {
+margin-bottom: 1em; /* Adds space between each input group */
+}
+
+.input-group label {
+display: block; /* Makes the label take up the full line above the input */
+margin-bottom: 0.3em; /* Optional: Add spacing between label and input */
+}
+
+.input-group input {
+width: 100%; /* Make inputs full width of the container, if desired */
+}
+
+.flexbox-row{
+display:flexbox ;
+flex-direction: row;
+}
+
+.flexbox-col{
+display: flexbox;
+flex-direction: column;
+}
+
+.fieldset0{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  }
+
+.fieldset1{
+display: flex;
+flex-direction: row;
+gap: 1em;
+}
+
+.fieldset2{
+display: flex;
+flex-direction: column;
+margin-top: 2.5em;
+}
+
+.rgbvalue-container{
+  margin-top: 1em;
+}
+
+.inline{
+display: flex;
+flex-direction: column;
+}
+
+#button-convertto-rgb{
+width: auto; /* Adjusts button width to its content */
+max-width: 200px; /* Set maximum width to prevent stretching */
+align-self: flex-start; /* Aligns the button to the start of its flex container */
+}
+
+.navbar-toggler {
+background: white !important; /* Ensures white background */
+border: none !important; /* Removes any borders */
+}
+
+/*.navbar-toggler-icon {
+background-image: url('bars-solid-black.svg') !important; 
+background-size: contain; 
+background-repeat: no-repeat;
+}*/
+
+.navbar-toggler:focus, .navbar-toggler:hover {
+background: white !important; /* Prevents hover or focus effects */
+box-shadow: none !important; /* Removes focus outline/shadow */
+}
+
+
+
