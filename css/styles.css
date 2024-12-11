@@ -150,6 +150,7 @@ flex-direction: column;
 
 .fieldset1{
 display: flex;
+display: none;
 flex-direction: row;
 gap: 1em;
 }

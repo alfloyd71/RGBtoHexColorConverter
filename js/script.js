@@ -1,53 +1,53 @@
-let color_converter_instance
+let colorConverterInstance
 
-const updateTimer=()=>{
-    color_converter_instance.buttonCopyHexcode.innerText="Copy"
-    color_converter_instance.buttonCopyRgb.innerText="Copy"
+function updateTimer(){
+    colorConverterInstance.buttonCopyHexcode.innerText="Copy"
+    colorConverterInstance.buttonCopyRgb.innerText="Copy"
 
 }
 
-const copyHexValue=()=>{
-    color_converter_instance.inputHexValueToCopy.select()
-    color_converter_instance.inputHexValueToCopy.setSelectionRange(0, 99999)
+function copyHexValue(){
+    colorConverterInstance.inputHexValueToCopy.select()
+    colorConverterInstance.inputHexValueToCopy.setSelectionRange(0, 99999)
 
-    navigator.clipboard.writeText(color_converter_instance?.inputHexValueToCopy.value)
-    color_converter_instance.buttonCopyHexcode.innerText="Copied"
+    navigator.clipboard.writeText(colorConverterInstance?.inputHexValueToCopy.value)
+    colorConverterInstance.buttonCopyHexcode.innerText="Copied"
     setInterval(updateTimer, 1000)
 }
 
-const copyRGBValue=()=>{
-    color_converter_instance.inputRgbValueToCopy.select()
-    color_converter_instance.inputRgbValueToCopy.setSelectionRange(0, 99999)
+function copyRGBValue(){
+    colorConverterInstance.inputRgbValueToCopy.select()
+    colorConverterInstance.inputRgbValueToCopy.setSelectionRange(0, 99999)
 
-    navigator.clipboard.writeText(color_converter_instance?.inputRgbValueToCopy.value)
-    color_converter_instance.buttonCopyRgb.innerText="Copied"
+    navigator.clipboard.writeText(colorConverterInstance?.inputRgbValueToCopy.value)
+    colorConverterInstance.buttonCopyRgb.innerText="Copied"
     setInterval(updateTimer, 1000)
 }
   
 function convertToHex(){  
     let color;
-    color_converter_instance.colorDivToHex.style.display="block"
-    color_converter_instance.inputHexValueToCopy.style.display="inline"
-    if (color_converter_instance?.redInput.value==="" && color_converter_instance?.greenInput.value==="" && color_converter_instance?.blueInput.value==="") {
+    colorConverterInstance.colorDivToHex.style.display="block"
+    colorConverterInstance.inputHexValueToCopy.style.display="inline"
+    if (colorConverterInstance?.redInput.value==="" && colorConverterInstance?.greenInput.value==="" && colorConverterInstance?.blueInput.value==="") {
         color = rgbToHex(0,0,0)
-        color_converter_instance.inputHexValueToCopy.value=color.toLocaleUpperCase()
+        colorConverterInstance.inputHexValueToCopy.value=color.toLocaleUpperCase()
     }
     else{
-        if(color_converter_instance?.redInput.value===""){color_converter_instance.redInput.value="0"}
-        if(color_converter_instance?.greenInput.value===""){color_converter_instance.greenInput.value="0"}
-        if(color_converter_instance?.blueInput.value===""){color_converter_instance.blueInput.value="0"}
-        if(parseInt(color_converter_instance?.redInput.value)>255){color_converter_instance.redInput.value="255"}
-        if(parseInt(color_converter_instance?.greenInput.value)>255){color_converter_instance.greenInput.value="255"}
-        if(parseInt(color_converter_instance?.blueInput.value)>255){color_converter_instance.blueInput.value="255"}
+        if(colorConverterInstance?.redInput.value===""){colorConverterInstance.redInput.value="0"}
+        if(colorConverterInstance?.greenInput.value===""){colorConverterInstance.greenInput.value="0"}
+        if(colorConverterInstance?.blueInput.value===""){colorConverterInstance.blueInput.value="0"}
+        if(parseInt(colorConverterInstance?.redInput.value)>255){colorConverterInstance.redInput.value="255"}
+        if(parseInt(colorConverterInstance?.greenInput.value)>255){colorConverterInstance.greenInput.value="255"}
+        if(parseInt(colorConverterInstance?.blueInput.value)>255){colorConverterInstance.blueInput.value="255"}
 
-        color = rgbToHex(parseInt(color_converter_instance?.redInput.value), parseInt(color_converter_instance?.greenInput.value), parseInt(color_converter_instance?.blueInput.value))
-        color_converter_instance.inputHexValueToCopy.value=color.toLocaleUpperCase()
+        color = colorConverterInstance?.rgbToHex(parseInt(colorConverterInstance?.redInput.value), parseInt(colorConverterInstance?.greenInput.value), parseInt(colorConverterInstance?.blueInput.value))
+        colorConverterInstance.inputHexValueToCopy.value=color.toLocaleUpperCase()
     }
-    color_converter_instance.colorDivToHex.style.backgroundColor=color
-    color_converter_instance.buttonCopyHexcode.style.display="inline"
-    if(color_converter_instance?.redInput.value==="0"){color_converter_instance.redInput.value=""}
-    if(color_converter_instance?.greenInput.value==="0"){color_converter_instance.greenInput.value=""}
-    if(color_converter_instance?.blueInput.value==="0"){color_converter_instance.blueInput.value=""}
+    colorConverterInstance.colorDivToHex.style.backgroundColor=color
+    colorConverterInstance.buttonCopyHexcode.style.display="inline"
+    if(colorConverterInstance?.redInput.value==="0"){colorConverterInstance.redInput.value=""}
+    if(colorConverterInstance?.greenInput.value==="0"){colorConverterInstance.greenInput.value=""}
+    if(colorConverterInstance?.blueInput.value==="0"){colorConverterInstance.blueInput.value=""}
     
 }
 
@@ -55,81 +55,87 @@ function convertToRgb(hexColor){
     //event.preventDefault()
     //let hexColor;
     
-    if (color_converter_instance?.inputHex.value.trim()===""){color_converter_instance.inputHex.value="#000000"}
-    color_converter_instance.hexColor = color_converter_instance?.inputHex.value
+    //if (colorConverterInstance?.inputHex.value.trim()==="")colorConverterInstance.inputHex.value="#000000"
+    colorConverterInstance.hexColor = colorConverterInstance?.inputHex.value
     
     hexColor = hexColor.replace("#","")
     if(isHexadecimal(hexColor)){
         //color_div_torgb.style.display="block"
-        color_converter_instance.inputRgbValueToCopy.style.display="inline"
+        colorConverterInstance.inputRgbValueToCopy.style.display="inline"
         const rgbTuple = hexToRgb(hexColor);
-        color_converter_instance.inputRgbValueToCopy.value=`rgb(${rgbTuple})`
+        colorConverterInstance.inputRgbValueToCopy.value=`rgb(${rgbTuple})`
         //color_div_torgb.style.backgroundColor=`rgb(${rgbTuple})`
-        color_converter_instance.buttonCopyRgb.style.display="inline"
+        colorConverterInstance.buttonCopyRgb.style.display="inline"
     }
     else{
         console.log("Not a hexColor")
     }
 }
 
-const rgbToHex = (r,g,b)=>"#" + ((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1)
-
-const hexToRgb = (hex) => {
+function hexToRgb(hex){
     // Remove the '#' if present
     hex = hex.replace('#', '');
 
     // Convert hexadecimal to RGB
-    const hex_integer = parseInt(hex, 16);
-    const r = (hex_integer >> 16) & 255;
-    const g = (hex_integer >> 8) & 255;
-    const b = hex_integer & 255;
+    const hexInteger = parseInt(hex, 16);
+    const r = (hexInteger >> 16) & 255;
+    const g = (hexInteger >> 8) & 255;
+    const b = hexInteger & 255;
 
     // Return RGB tuple
     return [r, g, b];
 };
 
-const isHexadecimal = (str) =>{
+function isHexadecimal(str){
     // regular expression to match hexadecimal strings
-    const hex_regex = /^[0-9A-Fa-f]+$/
+    const hexRegex = /^[0-9a-fA-F]+$/
 
     // test the string against the regular expression
-    return hex_regex.test(str)
+    return hexRegex.test(str)
+}
+
+
+
+function changeColor(){
+  colorConverterInstance.colorDivToHex.style.backgroundColor=this.value
+  if(this.className==='color-picker') colorConverterInstance.inputHexValueToCopy.value=colorConverterInstance?.colorPallete.value
+
+  if(this.className==='input-hex') colorConverterInstance.colorPallete.value = this.value
+  let hexToRgbVar = hexToRgb(colorConverterInstance?.colorPallete.value)
+  colorConverterInstance.redInput.value = hexToRgbVar[0]
+  colorConverterInstance.greenInput.value = hexToRgbVar[1]
+  colorConverterInstance.blueInput.value = hexToRgbVar[2]
+
+  if(this.className!=='input-rgbvalue')convertToRgb(colorConverterInstance?.colorPallete.value)
+
 }
 
 function registerEventListeners(){
-  const color_pallete = document.querySelector('.color-picker')
-  const inputHexvalue = document.querySelector('#input-hex-value-tocopy')
-  
-  color_converter_instance.buttonCopyHexcode.addEventListener(("click"),(event)=>{
+  colorConverterInstance.buttonCopyHexcode.addEventListener(("click"),(event)=>{
     event.preventDefault()
     copyHexValue()
   })
 
-  color_converter_instance.buttonCopyRgb.addEventListener("click",(event)=>{
+  colorConverterInstance.buttonCopyRgb.addEventListener("click",(event)=>{
       event.preventDefault()
       copyRGBValue()
   })
   
-   color_pallete.addEventListener('input', ()=>{
-    console.log(color_pallete.value)
-    color_converter_instance.colorDivToHex.style.backgroundColor=color_pallete.value
-    color_converter_instance.inputHexValueToCopy.value=color_pallete.value
-    console.log(hexToRgb('#FF0000'))
-    let hex_to_rgb = hexToRgb(color_pallete.value)
-    color_converter_instance.redInput.value = hex_to_rgb[0]
-    color_converter_instance.greenInput.value = hex_to_rgb[1]
-    color_converter_instance.blueInput.value = hex_to_rgb[2]
-    convertToRgb(color_pallete.value)
+  colorConverterInstance?.colorPallete.addEventListener('input', changeColor)
 
-  })
+  //colorConverterInstance?.inputHexValueToCopy.addEventListener('change', changeColor)
+  colorConverterInstance?.inputHexValueToCopy.addEventListener('keyup', changeColor)
+  //colorConverterInstance?.inputRgbValueToCopy.addEventListener('change', changeColor)
+  colorConverterInstance?.inputRgbValueToCopy.addEventListener('keyup', changeColor)
+
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  color_converter_instance = new ColorConverter()
+  colorConverterInstance = new ColorConverter()
 
-  color_converter_instance.headingText.setAttribute('data-heading-text', color_converter_instance?.headingText.textContent)
+  colorConverterInstance.headingText.setAttribute('data-heading-text', colorConverterInstance?.headingText.textContent)
 
   registerEventListeners()
   convertToHex()
-  convertToRgb(color_converter_instance.hexColor)
+  convertToRgb(colorConverterInstance.hexColor)
 })
