@@ -94,21 +94,56 @@ function isHexadecimal(str){
     return hexRegex.test(str)
 }
 
+function changeColor() {
+  const instance = colorConverterInstance;
 
+  // Update background color
+  instance.colorDivToHex.style.backgroundColor = this.value;
 
-function changeColor(){
-  colorConverterInstance.colorDivToHex.style.backgroundColor=this.value
-  if(this.className==='color-picker') colorConverterInstance.inputHexValueToCopy.value=colorConverterInstance?.colorPallete.value
+  // Handle color picker input
+  if (this.className === 'color-picker') {
+    instance.inputHexValueToCopy.value = instance?.colorPallete.value;
+    instance.rgbValueBeforeKeyup = instance?.colorPallete.value;
+  }
 
-  if(this.className==='input-hex') colorConverterInstance.colorPallete.value = this.value
-  let hexToRgbVar = hexToRgb(colorConverterInstance?.colorPallete.value)
-  colorConverterInstance.redInput.value = hexToRgbVar[0]
-  colorConverterInstance.greenInput.value = hexToRgbVar[1]
-  colorConverterInstance.blueInput.value = hexToRgbVar[2]
+  // Handle hex input
+  if (this.className === 'input-hex') {
+    instance.colorPallete.value = this.value;
+  }
 
-  if(this.className!=='input-rgbvalue')convertToRgb(colorConverterInstance?.colorPallete.value)
+  // Convert hex to RGB
+  const hexToRgbVar = hexToRgb(instance?.colorPallete.value);
+  if (hexToRgbVar) {
+    instance.redInput.value = hexToRgbVar[0];
+    instance.greenInput.value = hexToRgbVar[1];
+    instance.blueInput.value = hexToRgbVar[2];
+  }
 
+  // Convert RGB to hex if necessary
+  if (this.className !== 'input-rgbvalue') {
+    convertToRgb(instance?.colorPallete.value);
+  } else {
+    const regex = /(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})/;
+    const rgbValueMatch = this.value.match(regex);
+
+    if (rgbValueMatch) {
+      const [r, g, b] = rgbValueMatch.slice(1).map(Number);
+
+      // Validate RGB range
+      if (r <= 255 && g <= 255 && b <= 255) {
+        const hexValue = instance?.rgbToHex(r, g, b);
+        instance.colorPallete.value = hexValue;
+        console.log('Hex value is', hexValue);
+        instance.inputHexValueToCopy.value = hexValue
+      } else {
+        console.error('RGB values must be in the range 0–255');
+      }
+    } else {
+      console.error('Invalid RGB format');
+    }
+  }
 }
+
 
 function registerEventListeners(){
   colorConverterInstance.buttonCopyHexcode.addEventListener(("click"),(event)=>{
@@ -123,9 +158,7 @@ function registerEventListeners(){
   
   colorConverterInstance?.colorPallete.addEventListener('input', changeColor)
 
-  //colorConverterInstance?.inputHexValueToCopy.addEventListener('change', changeColor)
   colorConverterInstance?.inputHexValueToCopy.addEventListener('keyup', changeColor)
-  //colorConverterInstance?.inputRgbValueToCopy.addEventListener('change', changeColor)
   colorConverterInstance?.inputRgbValueToCopy.addEventListener('keyup', changeColor)
 
 }
