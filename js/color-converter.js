@@ -1,7 +1,7 @@
 class ColorConverter{
   constructor(){
     this.rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
-    this.hexColor='#ff0000'
+    this.hexColor='#ff00ff'
     this.headingText = document.querySelector('#heading-text')
     this.colorDivToHex = document?.querySelector("#color-div-tohex")
     this.inputHexValueToCopy = document?.querySelector("#input-hex-value-tocopy")

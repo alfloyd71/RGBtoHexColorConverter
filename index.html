@@ -21,6 +21,7 @@
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js' integrity='sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI' crossorigin='anonymous'></script>
 </head>
 <body>
+  <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><img width ="100%" height="100%" src="images/bars-solid-black.svg"></span>
@@ -34,68 +35,73 @@
             <li class="nav-item">
               <a class="nav-link" href="/javascript/rgbtohexcolor">RGB Color Converter</a>
             </li>
-       
-        
-         
           </ul>
         </div>
       </nav>
       <h1 id="heading-text" class="gradient-text"> RGB to Hex Color Converter <img class="rainbow-logo" src="images/rainbow-logo.webp" alt="rainbow-logo.webp"></h1> <p id="github-repo">is released under the MIT License, and all of its source code is available at <a target="”_blank”" rel="noopener" href="https://github.com/alfloyd71/RGBtoHexColorConverter">github.com/alfloyd71/RGBtoHexColorConverter</a></p>
+  </header>
        
-        <form>
-          <fieldset class="fieldset0">
-            <label for="color-picker"><strong>RGB Color</strong><input id="color-picker" class="color-picker" value="#ff00ff" type="color"></label>
-          </fieldset>
-          <fieldset class="fieldset1">
-            <div class="input-group">
-              <div class="flexbox-row">
-                <div class="flexbox-col">
-                  <label for="red-input" class="color-red">Red</label>
-                  <input  value="255" type="text" id="red-input" placeholder="0">
-                </div>
-              </div>
+  <form>
+   <div class="flexbox-row"> 
+    <!-- first column -->
+    <div>
+      <fieldset class="fieldset0">
+        <label for="color-picker"><strong>RGB Color</strong><input id="color-picker" class="color-picker" value="#ff00ff" type="color"></label>
+      </fieldset>
+      <fieldset class="fieldset1">
+        <div class="input-group">
+          <div class="flexbox-row">
+            <div class="flexbox-col">
+              <label for="red-input" class="color-red">Red</label>
+              <input  value="255" type="text" id="red-input" placeholder="0">
             </div>
-            <div class="input-group">
-              <div class="flexbox-row">
-                <div class="flexbox-col">
-                  <label for="green-input" class="color-green">Green</label>
-                  <input type="text" id="green-input" placeholder="0">
-                </div>
-              </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="flexbox-row">
+            <div class="flexbox-col">
+              <label for="green-input" class="color-green">Green</label>
+              <input type="text" id="green-input" placeholder="0">
             </div>
-            <div class="input-group">
-              <div class="flexbox-row">
-                <div class="flexbox-col">
-                  <label for="blue-input" class="color-blue">Blue</label>
-                  <input value="255" type="text" id="blue-input" placeholder="0">
-                </div>
-              </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="flexbox-row">
+            <div class="flexbox-col">
+              <label for="blue-input" class="color-blue">Blue</label>
+              <input value="255" type="text" id="blue-input" placeholder="0">
             </div>
-          </fieldset>
-          
-        </form>
-        
-        <div id="color-div-tohex"></div>
-          <form>
-            <fieldset class="fieldset2">
-              <div>
-                <label for="input-hex-value-tocopy"><strong>Hex Value</strong></label>  
-                <input type="input" class="input-hex" id="input-hex-value-tocopy" maxlength="7">
-                <span id="td-button-copy-hexcode"><button id="button-copy-hexcode">Copy</button></span>
-              </div>    
-              <div class="rgbvalue-container">
-                <label for="input-rgb-value-tocopy"><strong>RGB Value</strong></label>
-                <input type="input" class="input-rgbvalue" id="input-rgb-value-tocopy" maxlength="30" pattern="rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)" required>
-                <span id="td-button-copy-rgb"><button id="button-copy-rgb">Copy</button></span>
-              </div>
-              
-        
-            </fieldset>    
-          </form>   
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    
+    <div id="color-div-tohex"></div>
+      <form>
+        <fieldset class="fieldset2">
+          <div>
+            <label for="input-hex-value-tocopy"><strong>Hex Value</strong></label>  
+            <input type="input" class="input-hex" id="input-hex-value-tocopy" maxlength="7">
+            <span id="td-button-copy-hexcode"><button id="button-copy-hexcode">Copy</button></span>
+          </div>    
+          <div class="rgbvalue-container">
+            <label for="input-rgb-value-tocopy"><strong>RGB Value</strong></label>
+            <input type="input" class="input-rgbvalue" id="input-rgb-value-tocopy" maxlength="30" pattern="rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)" required>
+            <span id="td-button-copy-rgb"><button id="button-copy-rgb">Copy</button></span>
+          </div>
+        </fieldset> 
+      </div>   
+      <!-- second column -->
+      <div>
+        <input id="image-color-dropper-file" type="file"><img id="image-color-dropper" src="">
+      </div>
+      <!-- end row -->
+    </div>
+    </form>   
 
     <footer class="footer py-5">
       <div class="container">
-        <div class="row">
+        <div class="flexbox-row">
            <div class="col-12 mx-auto text-center mt-1">
               <p class="mb-0 text-secondary">
                 &copy2024 MyWebsite.com   
@@ -106,6 +112,39 @@
       </div>
     </footer>
     <script src="js/color-converter.js"></script>
-    ,<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      const imageColorDropperFile = document.querySelector('#image-color-dropper-file');
+      const imageColorDropper = document.querySelector('#image-color-dropper');
+      const inputClass = document.querySelectorAll('input');
+    
+      console.log(inputClass);
+    
+      imageColorDropperFile.addEventListener('change', (event) => {
+        // set image size to 800px by 800px to be able to pick any color and to be able to use the full color palette
+        imageColorDropper.style.width = '37.5rem'
+        imageColorDropper.style.height = '37.5rem'
+
+        console.log(imageColorDropperFile);
+        console.log(imageColorDropperFile.value);
+        const file = event.target.files[0];
+        console.log(file);
+    
+        if (file) {
+          const reader = new FileReader();
+          console.log(reader);
+    
+          reader.onload = function(e) {
+            console.log('onload');
+            imageColorDropper.src = e.target.result; // Set the image source to the result
+            imageColorDropper.style.display = 'block'; // Make the image visible
+          };
+    
+          // Start reading the file as a Data URL
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+    
 </body>
 </html>
